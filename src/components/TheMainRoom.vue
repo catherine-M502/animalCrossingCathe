@@ -5,6 +5,7 @@
   import PortalTeleporter from './PortalTeleporter.vue';
 import ExitDoor from "./ExitDoor.vue";
 
+
   import '../aframe/life-like-automaton.js';
 
   defineProps({
@@ -36,6 +37,13 @@ import ExitDoor from "./ExitDoor.vue";
       life-like-automaton="maxGen: 10; birthRule: 6,7,8; survivalRule: 4,5,6,7,8;"
     ></a-entity>
 
+    <a-entity
+  gltf-model="#arbre"
+  position="0 0 -5"
+  scale="0.1 0.1 0.1">
+
+  </a-entity>
+
     <BoxColorChanging
       id="box-left"
       :scale="scale"
@@ -53,6 +61,7 @@ import ExitDoor from "./ExitDoor.vue";
       @click="colorBoxLeft = randomHsl()"
       sound="src: #sound-1; on: click;"
     />
+
 
     <PortalTeleporter
       label="Enter the Life Cube Room"
@@ -76,6 +85,8 @@ import ExitDoor from "./ExitDoor.vue";
   <ExitDoor />
 
   <!-- Main room navigation mesh  -->
+
+
   <a-entity
     geometry="primitive: plane; height: 13.5; width: 6"
     position="0 0.01 -4.75"

@@ -6,6 +6,7 @@
   import TheLifeCubeRoom from './TheLifeCubeRoom.vue';
   import ThePhysicRoom from './ThePhysicRoom.vue';
 
+
   defineProps({
     scale: Number,
     overlaySelector: String,
@@ -16,21 +17,23 @@
 
 <template>
   <a-scene
-    background="color: black;"
-    :webxr="`
+   
+  background="color: black;"
+    :awebxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
       optionalFeatures: dom-overlay;
       overlayElement: ${overlaySelector};
     `"
-    xr-mode-ui="XRMode: xr"
-    physx="
+    axr-mode-ui="XRMode: xr"
+    aphysx="
       autoLoad: true;
       delay: 1000;
       useDefaultScene: false;
       wasmUrl: lib/physx.release.wasm;
     "
   >
+  
 
     <a-assets @loaded="allAssetsLoaded = true">
       <!--
@@ -48,15 +51,25 @@
       -->
       <a-asset-item id="physic-room" src="assets/3d_gallery_for_vr_projects.glb"></a-asset-item>
       <a-asset-item id="sound-1" response-type="arraybuffer" src="assets/sound1.mp3" preload="auto"></a-asset-item>
+      <a-asset-item id="arbre" src="../../public/assets/"></a-asset-item>
+
+  
       <img id="room-physic-out-texture" :src="`assets/main-room-from-physic-room.png`">
       <img id="room-gol-out-texture" :src="`assets/main-room-from-gol-room.png`">
       <img id="room-physic-texture" :src="`assets/physicRoom.png`">
+
     </a-assets>
 
     <template v-if="allAssetsLoaded">
       <TheMainRoom :scale="scale" />
       <TheLifeCubeRoom />
       <ThePhysicRoom />
+    
+      
+      <!-- moi :pour créer boite -->
+
+      <a-box color="tomato" depth="2" height="4" width="0.5"></a-box>
+
     </template>
 
     <TheCameraRig />
