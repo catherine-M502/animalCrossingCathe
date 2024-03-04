@@ -20,7 +20,7 @@
     <div>
       <h1>A-Frame + Vite + Vue Boilerplate</h1>
       <p v-if="!loaded">loading...</p>
-      <button v-if="loaded" @click="enterScene()">Enter scene</button>
+      <button v-if="loaded" @click="enterScene()">Commencer</button>
       <div class="licences">
       <section>
         <h4>Movement modes support</h4>

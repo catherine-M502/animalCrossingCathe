@@ -1,39 +1,32 @@
 <script setup>
-  import { ref } from 'vue';
+import { ref } from 'vue';
 
-  import TheCameraRig from './TheCameraRig.vue';
-  import TheMainRoom from './TheMainRoom.vue';
-  import TheLifeCubeRoom from './TheLifeCubeRoom.vue';
-  import ThePhysicRoom from './ThePhysicRoom.vue';
+import TheCameraRig from './TheCameraRig.vue';
+import TheMainRoom from './TheMainRoom.vue';
+import ThePhysicRoom from './ThePhysicRoom.vue';
 
+defineProps({
+  scale: Number,
+  overlaySelector: String,
+});
 
-  defineProps({
-    scale: Number,
-    overlaySelector: String,
-  });
-
-  const allAssetsLoaded = ref(false);
+const allAssetsLoaded = ref(false);
 </script>
 
 <template>
-  <a-scene
-   
-  background="color: black;"
+  <a-scene stats _fog="type: linear; color: #87CEEB; near: 0; far: 9, density : -0.1" background="color: #87CEEB;"
     :awebxr="`
       requiredFeatures: local-floor;
       referenceSpaceType: local-floor;
       optionalFeatures: dom-overlay;
       overlayElement: ${overlaySelector};
-    `"
-    axr-mode-ui="XRMode: xr"
-    aphysx="
+    `" axr-mode-ui="XRMode: xr" aphysx="
       autoLoad: true;
       delay: 1000;
       useDefaultScene: false;
       wasmUrl: lib/physx.release.wasm;
-    "
-  >
-  
+    ">
+
 
     <a-assets @loaded="allAssetsLoaded = true">
       <!--
@@ -42,18 +35,42 @@
         Model author: https://sketchfab.com/mvrc.art (Maxim Mavrichev)
         Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
       -->
-      <a-asset-item id="room" src="assets/vr_gallery.glb"></a-asset-item>
+
+      <a-asset-item id="room" src="assets/interieur-piece-principale.glb"></a-asset-item>
+
       <!--
         Title: 3D Gallery for VR projects
         Model source: https://sketchfab.com/3d-models/3d-gallery-for-vr-projects-68f77ed8558c4bd59e0a13e2cc9d1fd1
         Model author: https://sketchfab.com/tekuto1s (tekuto1s)
         Model license: CC BY 4.0 ( https://creativecommons.org/licenses/by/4.0/ )
       -->
-      <a-asset-item id="physic-room" src="assets/3d_gallery_for_vr_projects.glb"></a-asset-item>
-      <a-asset-item id="sound-1" response-type="arraybuffer" src="assets/sound1.mp3" preload="auto"></a-asset-item>
-      <a-asset-item id="arbre" src="../../public/assets/"></a-asset-item>
 
-  
+      <!--mon île-->
+      <a-asset-item id="physic-room" src="assets/ile-animal-crossing.glb"></a-asset-item>
+
+      <!--bol pour fruit-->
+      <a-asset-item id="bol" :src="`assets/bol.glb`"></a-asset-item>
+
+      <!--sapin-->
+      <a-asset-item id="sapin" :src="`assets/sapin.glb`"></a-asset-item>
+
+      <!--maison sur l'île-->
+      <a-asset-item id="maison" :src="`assets/maison.glb`"></a-asset-item>
+
+      <!--cerise-->
+      <a-asset-item id="cerise" :src="`assets/cerise.glb`"></a-asset-item>
+
+      <a-asset-item id="cerise-1" :src="`assets/cerise.glb`"></a-asset-item>
+
+      <!--frigo-->
+      <a-asset-item id="frigo" :src="`assets/frigo.glb`"></a-asset-item>
+
+      <!--tom nook personnage sur île-->
+      <a-asset-item id="tom-nook" :src="`assets/tom-nook-personnage.glb`"></a-asset-item>
+
+      <!--rounard personnage-->
+      <a-asset-item id="rounard" :src="`assets/rounard-personnage.glb`"></a-asset-item>
+
       <img id="room-physic-out-texture" :src="`assets/main-room-from-physic-room.png`">
       <img id="room-gol-out-texture" :src="`assets/main-room-from-gol-room.png`">
       <img id="room-physic-texture" :src="`assets/physicRoom.png`">
@@ -62,17 +79,9 @@
 
     <template v-if="allAssetsLoaded">
       <TheMainRoom :scale="scale" />
-      <TheLifeCubeRoom />
       <ThePhysicRoom />
-    
-      
-      <!-- moi :pour créer boite -->
-
-      <a-box color="tomato" depth="2" height="4" width="0.5"></a-box>
-
     </template>
 
     <TheCameraRig />
-
   </a-scene>
 </template>
