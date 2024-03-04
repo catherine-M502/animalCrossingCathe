@@ -5,6 +5,7 @@ import '../aframe/simple-navmesh-constraint.js';
 import '../aframe/blink-controls.js';
 import '../aframe/physx-grab.js';
 </script>
+<!--Mettre le bol ici à la place pour la main gauche !-->
 
 <template>
   <a-entity id="camera-rig" movement-controls="camera: #head;" disable-in-vr="component: movement-controls;">

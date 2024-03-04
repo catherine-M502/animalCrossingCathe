@@ -7,6 +7,7 @@ import '../aframe/bind-position.js';
 import '../aframe/bind-rotation.js';
 import { ref, onMounted, onUnmounted } from 'vue';
 import '../aframe/look-at.js';
+import '../aframe/spawn-text.js';
 
 defineProps({
   scale: Number,
@@ -74,9 +75,11 @@ onUnmounted(() => {
     <a-entity gltf-model="#maison" position="1.1 0.07 -.5" scale=".0007 .0007 .0007">
     </a-entity>
 
+
     <!--  tom nook personnage-->
     <a-entity gltf-model="#tom-nook" position="1.9 0.0 0.1" scale=".002 .002 .002" look-at="">
     </a-entity>
+
 
     <!-- sapin -->
     <a-entity gltf-model="#sapin" position="0 0.06 -.8" scale=".05 .05 .05">
@@ -114,7 +117,7 @@ onUnmounted(() => {
   <!-- Compteur de cerises dans le bol -->
 
   <a-entity id="cerises-counter" position="1 203.76 -21.89" rotation="360 180 0" scale="2 2 2"
-    text="value: Cerises in Bol: 0; color: green; align: center; width: 20; font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; letter-spacing: 5;"
+    text="value: Cerises in Bol: 0; color: red; align: center; width: 20; font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; letter-spacing: 5;"
     look-at=""></a-entity>
 
   <a-entity id="countdownTextPhysic" position="1.9 0.0 0.1"
