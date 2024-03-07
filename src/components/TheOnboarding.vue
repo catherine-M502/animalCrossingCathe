@@ -6,9 +6,14 @@ defineProps({
 });
 
 const showOnboarding = ref(true);
+const isGameStarted = ref(false);
+const countdownValue = ref(60); // Initial value for the countdown
+
 
 function enterScene() {
   showOnboarding.value = false;
+  isGameStarted.value = true;
+  console.log("Game started, isGameStarted:", isGameStarted.value);
   if (AFRAME.utils.device.checkHeadsetConnected() && !AFRAME.utils.device.isMobile()) {
     document.querySelector('a-scene').enterVR();
   }
@@ -16,6 +21,7 @@ function enterScene() {
   const audioSrc = "assets/animal-crossing-musique.mp3";
   const audioElement = new Audio(audioSrc);
   audioElement.play();
+
 }
 </script>
 
@@ -23,10 +29,90 @@ function enterScene() {
   <div id="onboarding" v-if="showOnboarding">
     <div>
       <h1>A-Frame + Vite + Vue Boilerplate</h1>
+      <h2>Animal Crossing :🌴 Tom Nook Island 🌴</h2>
       <p v-if="!loaded">loading...</p>
-      <button v-if="loaded" @click="enterScene()">Commencer</button>
+      <button v-if="loaded" @click="enterScene()">Start</button>
       <div class="licences">
         <section>
+          <h3>Rules of the game 🎮</h3>
+          <ul>
+            <li>
+              Welcome to the captivating world of <span style="font-weight: bold; color:  pink;">Animal Crossing:Tom
+                Nook Island!</span>
+              Get ready to embarkon a thrilling adventure to help Tom Nook, the iconic tanuki owner of the village
+              store, recover his
+              precious resources! They were stolen by the mischievous Rounard, the fox who sells unscrupulous objects!
+              He really needs them back to keep the village running smoothly.</li>
+            <li>
+              <span style="font-weight: bold; color:  pink;">Your mission is clear: locate the resources scattered
+                across the picturesque island of
+                Tom Nook in the
+                bowl you're holding. You have a little over a minute.</span> <span
+                style="font-weight: bold; color:  pink;">Once you click on the
+                resources</span>(they look like
+              <span style="font-weight: bold; color:  pink;">cubes </span> and
+              come
+              in different colors), it will be directly stored in
+              the storage area in the town hall.
+              Get ready for an immersive experience in Animal Crossing: Tom Nook Island.
+            </li>
+            <li>
+              How to go there ? You can access it via the <span style="font-weight: bold; color:  pink;"> teleportation
+                portal</span>, visible from the town
+              hall, go
+              there. So be quick, strategic, and above all, be attentive to every corner of the island, because the
+              resources could be hiding anywhere!
+            </li>
+            <li>
+              Are you ready to take on the challenge and save Tom Nook's resources? Adventure awaits!
+            </li>
+          </ul>
+          <h4>Sources</h4>
+          <ul>
+            <li>
+              Animal Crossing Map,
+              Sketfab,
+              License: CC Attribution-NonCommercial-ShareAlikeCC Attribution-NonCommercial-ShareAlike
+            </li>
+            <li>
+              FREE DOWNLOAD Low poly nature pack,
+              Sketfab,
+              License:CC Attribution
+            </li>
+            <li>
+              Animal Crossing New Leaf- Tom Nook,
+              Sketfab,
+              Licence: CC Attribution
+            </li>
+            <li>
+              Fridge,
+              Sketfab,
+              Licence: Free Standard
+            </li>
+            <li>
+              Animal Crossing House,
+              Sketfab,
+              Licence: CC Attribution
+            </li>
+            <li>
+              Animal Crossing fox Redd,
+              Sketfab,
+              Licence: CC Attribution
+            </li>
+            <li>
+              Mary Rose Bowl - Low Poly,
+              Sketfab,
+              Licence: CC Attribution
+            </li>
+            <li>
+              Animal Crossing-Resident Serivices Interior,
+              Sketfab,
+              Licence: CC Attribution
+            </li>
+          </ul>
+
+
+
           <h4>Movement modes support</h4>
           <ul>
             <li>
@@ -131,7 +217,7 @@ a {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: #333;
+  background-color: #967456;
   color: #ccc;
   width: 100vw;
   height: 100vh;

@@ -2,6 +2,7 @@ AFRAME.registerComponent("look-at", {
   schema: {
     target: { type: "selector", default: "[camera]" },
     enabled: { type: "boolean", default: true },
+    constrainVertically: { type: "boolean", default: false },
   },
   init: function () {
     this.targetWorldPos = new THREE.Vector3();
@@ -23,6 +24,12 @@ AFRAME.registerComponent("look-at", {
     if (!this.data.target) return;
     this.data.target.object3D.getWorldPosition(this.targetWorldPos);
     this.el.object3D.getWorldPosition(this.myWorldPos);
+
+    if (this.data.constrainVertically)
+      // Adjust the Y position of the target so that it is at the same level as the object
+      // This constrains the rotation to the Y axis only
+      this.targetWorldPos.y = this.myWorldPos.y;
+
     this.el.object3D.lookAt(this.targetWorldPos);
   },
 });
