@@ -6,8 +6,6 @@ import "../aframe/bind-position.js";
 import "../aframe/bind-rotation.js";
 import "../aframe/look-at.js";
 
-
-
 //hitbox (mettre à 0 pour enlever le cube qui entoure la cerise)
 const hitboxOpacity = 0;
 
@@ -22,13 +20,12 @@ function grabTheThing(evt) {
   const el = evt.target;
   const grabbedEl = document.querySelector("[data-grabbed]");
 
-  if (grabbedEl ) {
+  if (grabbedEl) {
   }
   el.setAttribute("bind-position", "target: #hand-left");
   el.setAttribute("bind-rotation", "target: #hand-left; convertToLocal: true");
 
   const itemScore = el.getAttribute("data-score");
-  
 
   el.dataset.grabbed = true;
 
@@ -48,7 +45,6 @@ function updateCubesCounter() {
       "text",
       `value: Resources grabbed in the bowl: ${score.value}; color: red; align: center; width: 20;`
     );
-    
   }
 }
 //temps établi à 68 secondes pour une partie du jeu
@@ -56,8 +52,6 @@ const countdownValue = ref(68);
 let interval;
 
 function goToIsland() {
- 
-
   interval = setInterval(() => {
     if (countdownValue.value > 0) {
       countdownValue.value--;
@@ -120,8 +114,6 @@ onUnmounted(() => {
       scale="5 5 5"
       text="value: Resources grabbed in bowl: 0; color: red; align: center; width: 20; font: https://cdn.aframe.io/fonts/Exo2Bold.fnt; letter-spacing: 5;"
       look-at=""
-    
-
     ></a-entity>
     <!--affichage du texte "Game over" lorsque le jeu est terminé-->
     <a-entity
