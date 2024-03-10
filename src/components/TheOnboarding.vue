@@ -1,28 +1,26 @@
 <script setup>
-import { ref } from 'vue';
-
+import { ref } from "vue";
+// A noter que le jeu peut prendre du temps à charger
 defineProps({
   loaded: Boolean,
 });
 
 const showOnboarding = ref(true);
-const isGameStarted = ref(false);
-const countdownValue = ref(60); // Initial value for the countdown
-
 
 function enterScene() {
   showOnboarding.value = false;
-  isGameStarted.value = true;
-  console.log("Game started, isGameStarted:", isGameStarted.value);
-  if (AFRAME.utils.device.checkHeadsetConnected() && !AFRAME.utils.device.isMobile()) {
-    document.querySelector('a-scene').enterVR();
+  if (
+    AFRAME.utils.device.checkHeadsetConnected() &&
+    !AFRAME.utils.device.isMobile()
+  ) {
+    document.querySelector("a-scene").enterVR();
   }
-  //ajout de la musique 
+  //ajout de la musique de fond Animal Crossing
   const audioSrc = "assets/animal-crossing-musique.mp3";
   const audioElement = new Audio(audioSrc);
   audioElement.play();
-
 }
+// page d'accueil du jeu VR Animal Crossing : Tom Nook Island
 </script>
 
 <template>
@@ -34,151 +32,149 @@ function enterScene() {
       <button v-if="loaded" @click="enterScene()">Start</button>
       <div class="licences">
         <section>
-          <h3>Rules of the game 🎮</h3>
+          <h3>Rules of the VR game 🎮</h3>
           <ul>
             <li>
-              Welcome to the captivating world of <span style="font-weight: bold; color:  pink;">Animal Crossing:Tom
-                Nook Island!</span>
-              Get ready to embarkon a thrilling adventure to help Tom Nook, the iconic tanuki owner of the village
-              store, recover his
-              precious resources! They were stolen by the mischievous Rounard, the fox who sells unscrupulous objects!
-              He really needs them back to keep the village running smoothly.</li>
-            <li>
-              <span style="font-weight: bold; color:  pink;">Your mission is clear: locate the resources scattered
-                across the picturesque island of
-                Tom Nook in the
-                bowl you're holding. You have a little over a minute.</span> <span
-                style="font-weight: bold; color:  pink;">Once you click on the
-                resources</span>(they look like
-              <span style="font-weight: bold; color:  pink;">cubes </span> and
-              come
-              in different colors), it will be directly stored in
-              the storage area in the town hall.
-              Get ready for an immersive experience in Animal Crossing: Tom Nook Island.
+              Welcome to the captivating and immersive world of
+              <span style="font-weight: bold; color: pink">Animal Crossing:Tom Nook Island!</span>
+              Get ready to embarkon on a thrilling adventure to help Tom Nook, the
+              iconic tanuki owner of the village store, recover his precious
+              resources! They were stolen by the mischievous Rounard, the fox
+              who sells unscrupulous objects! He really needs them back to keep
+              the village running smoothly.
             </li>
             <li>
-              How to go there ? You can access it via the <span style="font-weight: bold; color:  pink;"> teleportation
-                portal</span>, visible from the town
-              hall, go
-              there. So be quick, strategic, and above all, be attentive to every corner of the island, because the
-              resources could be hiding anywhere!
+              <span style="font-weight: bold; color: pink">Your mission is clear: collect as many points as possible by picking up resources scattered across
+                the picturesque island of Tom Nook in the bowl you're holding.
+                You have a little over a minute.</span>
+              <span>To grab, simply point your joystick at the resource that interests you (</span>
+              <span style="font-weight: bold; color: pink">note that the cherry is worth 1 point and the fossil 3 points.)</span> <span>So opt for fossils to gain the maximum number of points.</span>
             </li>
             <li>
-              Are you ready to take on the challenge and save Tom Nook's resources? Adventure awaits!
-            </li>
-          </ul>
-          <h4>Sources</h4>
-          <ul>
-            <li>
-              Animal Crossing Map,
-              Sketfab,
-              License: CC Attribution-NonCommercial-ShareAlikeCC Attribution-NonCommercial-ShareAlike
+              How to go to the island ? You can access it via the
+              <span style="font-weight: bold; color: pink">
+                teleportation portal</span>, visible from the town hall. Be quick and strategic.
             </li>
             <li>
-              FREE DOWNLOAD Low poly nature pack,
-              Sketfab,
-              License:CC Attribution
+              Are you ready to take on the challenge and save Tom Nook's
+              resources? Adventure awaits!
             </li>
-            <li>
-              Animal Crossing New Leaf- Tom Nook,
-              Sketfab,
-              Licence: CC Attribution
-            </li>
-            <li>
-              Fridge,
-              Sketfab,
-              Licence: Free Standard
-            </li>
-            <li>
-              Animal Crossing House,
-              Sketfab,
-              Licence: CC Attribution
-            </li>
-            <li>
-              Animal Crossing fox Redd,
-              Sketfab,
-              Licence: CC Attribution
-            </li>
-            <li>
-              Mary Rose Bowl - Low Poly,
-              Sketfab,
-              Licence: CC Attribution
-            </li>
-            <li>
-              Animal Crossing-Resident Serivices Interior,
-              Sketfab,
-              Licence: CC Attribution
-            </li>
-          </ul>
-
-
-
-          <h4>Movement modes support</h4>
-          <ul>
-            <li>
-              Desktop – Keyboard for move (WASD or Arrows keys) + Mouse for look
-              control (Drag and drop)
-            </li>
-            <li>
-              Mobile – 1x Finger touch to go forward + 2x Fingers touch to go
-              backward + Gaze cursor for click
-            </li>
-            <li>
-              VR Headset – AR/VR walk + Teleport (Grip for grab and laser for
-              click) + Gaze cursor for click
-            </li>
-          </ul>
+          </ul> 
         </section>
         <dl>
           <dt>
-            <i>Included</i>
+            <i>Included ✔️</i>
           </dt>
+<dt>
+            <a href="https://sketchfab.com/3d-models/animal-crossing-map-9f53cb8a02134037887875e022b2eae2" target="_blank">Isle</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/loupyboy" target="_blank">Loupyboy</a>
+            under
+            <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank"> CC BY NC SA 4.0</a>
+          </dd>
+<dt>
+            <a href="https://sketchfab.com/3d-models/free-download-low-poly-nature-pack-cb45d4926fcb4807bc93126b59325cf8" target="_blank">Nature (cherry and fir)</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/gostbento" target="_blank">Bento</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd>
           <dt>
-            <a href="https://github.com/c-frame/aframe-extras" target="_blank">aframe-extras controls and
-              animation-mixer</a>
+            <a href="https://sketchfab.com/3d-models/animal-crossing-new-leaf-tom-nook-3855b1d8020d4bb2bc1ce98717bf4ba2" target="_blank">Tom Nook</a>
           </dt>
-          <dd>
+          <dd> by
+            <a href="https://sketchfab.com/akennedy007" target="_blank">akennedy007</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd>
+  <dt>
+            <a href="https://sketchfab.com/3d-models/animal-crossing-house-68fd7b3b59d8441e82e64960620ac0e2" target="_blank">House</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/JMGameDev" target="_blank">JMGameDev</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd>
+<dt>
+            <a href="https://sketchfab.com/3d-models/animal-croissing-fox-redd-3549745fbdac4bc2b3a412432a75a490" target="_blank">Rounard</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/LunaEagle" target="_blank">LunaEagle</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd>
+         <dt>
+            <a href="https://sketchfab.com/3d-models/mary-rose-bowl-low-poly-b747abc1a0db4d62bc2f9319177bac37" target="_blank">Bowl</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/tauricity" target="_blank">John Fino (tauricity)
+</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd> 
+<dt>
+            <a href="https://sketchfab.com/3d-models/animal-crossing-resident-services-interior-94ba7ce8a73b487d92895093bd4ddbb0" target="_blank">Town Hall</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/Garu.The.Ninja" target="_blank">Garu
+</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd> 
+<dt>
+            <a href="https://www.youtube.com/watch?v=jcxQXX5z7NY" target="_blank">Click Music</a>
+          </dt>
+          <dd> by
+            <a href="https://www.youtube.com/@bigbeargaming8590" target="_blank">
+Big Bear Gaming
+</a>
+          </dd> 
+          <dt>
+            <a href="https://www.youtube.com/watch?v=PJ5FMwfyB08&t=979s" target="_blank">Background Music</a>
+          </dt>
+          <dd> by
+            <a href="https://www.youtube.com/@crispydonut426" target="_blank">
+CrispyDonut
+</a>
+          </dd> 
+          <dt>
+            <a href="https://sketchfab.com/3d-models/3ds-animal-crossing-new-leaf-fossil-dbeebdc369224fcd992842f270a8770d" target="_blank">Fossil</a>
+          </dt>
+          <dd> by
+            <a href="https://sketchfab.com/hilalarican23" target="_blank">U.A.C.WAD</a>
+            under
+            <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank"> CC BY 4.0</a>
+          </dd>
+<dt>
+            <a href="https://github.com/c-frame/aframe-extras" target="_blank">Aframe-extras controls and animation-mixer</a>
+          </dt><dd>
             <a href="https://github.com/c-frame/aframe-extras/blob/master/LICENSE" target="_blank">MIT License</a>
           </dd>
 
           <dt>
-            <a href="https://github.com/c-frame/physx" target="_blank">aframe physx</a>
-          </dt>
-          <dd>
+            <a href="https://github.com/c-frame/physx" target="_blank">Aframe physx</a>
+          </dt><dd>
             <a href="https://github.com/c-frame/aframe-extras/blob/master/LICENSE" target="_blank">MIT License</a>
           </dd>
 
           <dt>
-            <a href="https://github.com/jure/aframe-blink-controls/" target="_blank">aframe-blink-controls</a>
-          </dt>
-          <dd>
+            <a href="https://github.com/jure/aframe-blink-controls/" target="_blank">Aframe-blink-controls</a>
+          </dt><dd>
             <a href="https://github.com/jure/aframe-blink-controls/blob/main/LICENSE" target="_blank">MIT License</a>
           </dd>
 
           <dt>
-            <a href=" https://github.com/AdaRoseCannon/aframe-xr-boilerplate"
-              target="_blank">simple-navmesh-constraint</a>
-          </dt>
-          <dd>
+            <a href="https://github.com/diarmidmackenzie/aframe-multi-camera/" target="_blank">Aframe-multi-camera</a>
+          </dt><dd>
+            <a href="https://github.com/diarmidmackenzie/aframe-multi-camera/blob/main/LICENSE" target="_blank">MIT License</a>
+          </dd>
+
+          <dt>
+            <a href=" https://github.com/AdaRoseCannon/aframe-xr-boilerplate" target="_blank">Simple-navmesh-constraint</a>
+          </dt><dd>
             By Ada Rose Cannon under MIT License
-          </dd>
-
-          <dt>
-            <a href="https://sketchfab.com/3d-models/vr-gallery-1ac32ed62fdf424498acc146fad31f7e" target="_blank">VR
-              Gallery</a>
-          </dt>
-          <dd>
-            by <a href="https://sketchfab.com/mvrc.art" target="_blank">Maxim Mavrichev</a>
-            under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
-          </dd>
-
-          <dt>
-            <a href="https://sketchfab.com/3d-models/3d-gallery-for-vr-projects-68f77ed8558c4bd59e0a13e2cc9d1fd1"
-              target="_blank">Physic room model</a>
-          </dt>
-          <dd>
-            by <a href="https://sketchfab.com/tekuto1s" target="_blank">tekuto1s</a>
-            under <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">CC BY 4.0</a>
           </dd>
         </dl>
       </div>
@@ -188,7 +184,7 @@ function enterScene() {
 
 <style scoped>
 h1 {
-  font-size: 1.5rem
+  font-size: 1.5rem;
 }
 
 a {
@@ -241,13 +237,10 @@ a {
   font-size: 1.3rem;
   padding: 0.5rem 1rem;
   border-radius: 0.3rem;
-  background-color: white;
-  color: black;
+  background-color: rgb(211, 211, 177);
+  color: rgb(38, 35, 35);
   border: none;
   cursor: pointer;
 }
-</style>#onboarding li {
-#onboarding li {
-font-size: 1rem;
-text-align: left;
-}
+</style>
+#onboarding li { #onboarding li { font-size: 1rem; text-align: left; }
